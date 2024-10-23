@@ -1,0 +1,96 @@
+Step 1: Build Core Structure (Managers)
+1.1. Event Manager (Step 1a)
+What it does: Handles event creation, editing, and deletion.
+
+Steps:
+
+Define the Event class, which includes properties like event name, date, time, location, and description.
+Implement methods for creating (add event), editing, and deleting events.
+Create a temporary in-memory list of events (e.g., ArrayList) for now to store events.
+Testing:
+
+Ensure events can be added to the list, edited, and removed.
+Test by outputting the list of events to the console or displaying them in a simple UI.
+Verify that events are correctly created and updated.
+1.2. Contact Manager (Step 1b)
+What it does: Manages contacts pulled from Android’s contact system or entered manually.
+
+Steps:
+
+Define the Contact class with properties like name, email, and phone number.
+Implement methods to add contacts to the guest list (using a temporary list for now).
+Allow manual entry of contacts (for simplicity, don’t integrate with Android contacts just yet).
+Testing:
+
+Ensure contacts can be added, removed, and displayed.
+Test by outputting the contact list to the console or displaying it in a UI component.
+1.3. RSVP Manager (Step 1c)
+What it does: Tracks guest invitations and RSVP statuses.
+
+Steps:
+
+Add an RSVP status field to each guest in the Contact Manager (e.g., Not Responded, Attending, Not Attending).
+Implement methods to update the RSVP status for each guest.
+Connect the RSVP status to events created by the Event Manager.
+Testing:
+
+Create a few mock contacts and events, invite contacts to events, and update their RSVP status.
+Verify that RSVP statuses are correctly tracked and associated with the right event.
+Step 2: Connect Components
+2.1. Link Contact and RSVP Managers to Event Manager (Step 2a)
+What it does: Makes the Event Manager pull contacts from the Contact Manager and track RSVP statuses via the RSVP Manager.
+
+Steps:
+
+For each event, implement a guest list that pulls from the Contact Manager.
+Ensure that each contact has an RSVP status linked to the event.
+Testing:
+
+Ensure that events are correctly populated with a guest list and that RSVP statuses are correctly updated for each event.
+Create mock events and manually update guest statuses to check functionality.
+Step 3: Simplified UI
+3.1. Basic Event Creation and Viewing UI (Step 3a)
+What it does: Allows the user to create, view, and delete events.
+
+Steps:
+
+Build a simple interface to add event details (event name, date, time, etc.).
+Display the list of events in a simple list view or scrollable UI.
+Add buttons for editing and deleting events.
+Testing:
+
+Test that you can create, edit, and delete events through the UI, and that the event list updates correctly.
+3.2. Basic Guest List and RSVP UI (Step 3b)
+What it does: Displays the guest list for an event and allows the user to update RSVP statuses.
+Steps:
+Add a guest list view to each event’s details.
+Provide options to manually update RSVP statuses (e.g., drop-down menu or buttons).
+Testing:
+Ensure that guests are correctly linked to their RSVP statuses in the UI.
+Verify that updating an RSVP status changes the correct guest’s status.
+Step 4: Permissions and Integration (Optional for Simplicity)
+4.1. Decide on Contact and Calendar Integration (Step 4a)
+Contacts: You could either use manual input for now or integrate with Android’s Contacts Provider once the core system is working.
+Calendar: Decide whether to sync events with the native Android calendar, which can be integrated after the core event management system is working.
+For now, skip this step if the goal is simplicity.
+Step 5: Testing the Core
+5.1. Unit Testing for Each Manager (Step 5a)
+Write basic unit tests for:
+Event creation, editing, and deletion.
+Adding and updating contacts.
+RSVP tracking.
+5.2. Integration Testing (Step 5b)
+Once all managers are connected, test the full flow:
+Create an event.
+Add guests.
+Update their RSVP statuses.
+Edit the event and check if the data remains correct.
+Next Steps: Adding Complexity Later
+Once the core structure is working, you can decide whether to integrate native calendar syncing, contact system, or even an external database if needed. For now, this step-by-step plan will allow you to get a functional prototype with minimal complexity.
+
+Decision Tree Overview:
+Step 1: Build core structure (Event Manager, RSVP Manager, Contact Manager).
+Step 2: Connect the components.
+Step 3: Create simple UI for interaction.
+Step 4 (Optional): Decide on external integrations (contacts/calendar).
+Step 5: Test individual components and then the full system.
