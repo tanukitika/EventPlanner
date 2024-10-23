@@ -108,3 +108,29 @@ If you’re transitioning from Python to Kotlin, you’ll find Kotlin to be more
 Planning the overall structure, then deconstructing to the lowest levels before creating any code allows for modularity. Through modularity, I can test individual pieces of code to ensure functionality, and slowly reintegrate to larger structures. Through this, I can ensure cohesion and sound functionality and avoid building upon an unstable foundation. 
 
 
+3. SPLITTING UP CODE INTO SEPARATE FILES... AKA 'ONE CLASS PER FILE'... AKA MORE MODULARITY
+1. Efficiency in Development and Collaboration
+Modular Code: By keeping classes separate, developers can work on different parts of the codebase independently without worrying about accidentally affecting other parts. This becomes especially useful when multiple people are working on a project.
+Faster Debugging and Updates: If something goes wrong with the RSVP status, for example, you can jump directly into the RSVPStatus.kt file without sorting through other unrelated code. This leads to faster debugging and updates.
+2. Compile-Time Efficiency
+Incremental Compilation: Android Studio and other modern IDEs use incremental compilation, meaning only the files that have been changed need to be recompiled. If you modify just the RSVPStatus.kt file, the compiler will only recompile that file, speeding up the build process.
+If everything were in one large file, any change would require recompiling the entire file, which could slow down development, especially in larger projects.
+3. Runtime Efficiency
+Memory and Performance: While separating files doesn't directly affect runtime speed significantly on its own, modularity can lead to better memory management and more optimized code during runtime because each class can be loaded and used as needed.
+Lazy Loading and Modularity: In larger apps, separating code can allow for lazy loading, where only the parts of the app needed at any given time are loaded into memory. This helps conserve memory usage and can improve the app’s performance.
+4. Easier Future Optimization
+As the app grows, having a modular structure allows for more efficient refactoring. You can optimize individual components without needing to refactor large portions of the codebase. This makes scaling and optimizing the app much easier.
+For example, if you later introduce a database or network call, you can optimize just those portions without impacting the entire app’s code.
+5. Separation of Concerns and Single Responsibility Principle
+Each class does one thing well. This helps keep the logic focused and the code more efficient.
+For example, if you decide to optimize the way RSVP statuses are handled or introduce a caching mechanism for events, you can do this directly in RSVPManager.kt or EventManager.kt without touching the rest of the app.
+6. Maintainability and Readability
+Well-structured code is easier to extend and maintain over time. You can quickly identify where new features need to be added or optimized.
+It also makes reviewing code easier for others (or for your future self!)—leading to a more productive development process.
+Summary:
+Modular files improve development efficiency and runtime memory management.
+Incremental compilation speeds up build times, as only modified files are recompiled.
+Separation of concerns leads to better optimization and scalability in the future.
+Though splitting files won’t directly speed up runtime in simple apps, it plays a role in making the app more efficient overall, particularly as the app scales.
+So, by splitting your classes into individual files, you're setting yourself up for success both in terms of development speed and the app's future performance.
+
